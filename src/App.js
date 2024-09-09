@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/Theme.css';
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from "react-toastify";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Provider} from "react-redux";
+import Error404 from "./Pages/404";
+import store from './Redux/store';
+import ProtectedRoute from "./Components/ProtectedRoute";
+import Login from "./Pages/Authen/Login";
+import AdminLayout from "./Layout/AdminLayout";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Provider store={store}>
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/login" element={<Login />} />
+
+                  <Route element={<ProtectedRoute />}>
+                      <Route path={"/admin"} element={<AdminLayout/>}>
+                          <Route index element={<Dashboard />} />
+                      </Route>
+                  </Route>
+                  <Route path="*" element={<Error404 />} />
+              </Routes>
+              <ToastContainer />
+          </BrowserRouter>
+      </Provider>
   );
 }
 
