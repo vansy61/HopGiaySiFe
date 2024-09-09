@@ -16,12 +16,7 @@ const ProtectedRoute = () => {
     }
   }, [dispatch, token]);
   return (
-      token ?
-          <>
-      {
-        status !== "succeeded" ?
-        <Outlet /> : <div>Loading</div>
-      } </>: <Navigate to="/login" />
+      <Outlet />
   );
 };
 

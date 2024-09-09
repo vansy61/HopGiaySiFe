@@ -1,4 +1,5 @@
 import './css/Theme.css';
+import './css/Theme2.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
