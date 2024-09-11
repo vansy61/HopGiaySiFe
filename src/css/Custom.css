@@ -1,0 +1,8 @@
+.custom-strength-bar >div >div {
+    height: 5px!important;
+    border-radius: 5px!important;
+}
+
+.custom-strength-bar >div >div:nth-child(even) {
+    width: 10px!important;
+}

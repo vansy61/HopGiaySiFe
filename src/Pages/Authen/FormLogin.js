@@ -1,4 +1,7 @@
 import LogoLink from "../../Components/LogoLink";
+import {Link} from "react-router-dom";
+import FormikInput from "../../Components/Formik/FormikInput";
+import Submit from "../../Components/Button/Submit";
 
 export default function FormLogin({ formik }) {
     return (
@@ -6,14 +9,8 @@ export default function FormLogin({ formik }) {
               onSubmit={formik.handleSubmit}>
             <div className="text-center mb-11">
                 <LogoLink/>
-
-                <h1 className="text-gray-900 fw-bolder m-3">
-                    Đăng Nhập
-                </h1>
-
-                <div className="text-gray-500 fw-semibold fs-6">
-                    Sử dụng mạng xã hội
-                </div>
+                <h1 className="text-gray-900 fw-bolder m-3">Đăng Nhập</h1>
+                <div className="text-gray-500 fw-semibold fs-6">Sử dụng mạng xã hội</div>
             </div>
             <div className="row g-3 mb-9">
                 <div className="col-md-6">
@@ -40,34 +37,20 @@ export default function FormLogin({ formik }) {
                 <span className="w-125px text-gray-500 fw-semibold fs-7">Hoặc với email</span>
             </div>
             <div className="fv-row mb-8">
-                <input
-                    className="form-control bg-transparent"
-                    id="email"
+                <FormikInput
+                    formik={formik}
                     name="email"
                     type="text"
-                    autoComplete="off"
                     placeholder="Email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
                 />
-                {formik.touched.email && formik.errors.email && (
-                    <div className="text-danger">{formik.errors.email}</div>
-                )}
             </div>
             <div className="fv-row mb-3">
-                <input
-                    className="form-control bg-transparent"
-                    id="password"
+                <FormikInput
+                    formik={formik}
                     name="password"
                     type="password"
-                    autoComplete="off"
                     placeholder="Mật khẩu"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
                 />
-                {formik.touched.password && formik.errors.password && (
-                    <div className="text-danger">{formik.errors.password}</div>
-                )}
             </div>
             <div className="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                 <div></div>
@@ -78,17 +61,17 @@ export default function FormLogin({ formik }) {
             </div>
 
             <div className="d-grid mb-10">
-                <button type="submit" id="kt_sign_in_submit" className="btn btn-primary">
+                <Submit classes={"btn btn-primary"} isLoading={formik.isSubmitting}>
                     <span className="indicator-label">Đăng Nhập</span>
-                </button>
+                </Submit>
             </div>
 
             <div className="text-gray-500 text-center fw-semibold fs-6">
                 <span>Chưa có tài khoản</span>
-                <a href="/signin"
+                <Link to={"/signup"}
                    className="link-primary ms-2">
                     Đăng ký
-                </a>
+                </Link>
             </div>
         </form>
     )

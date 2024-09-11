@@ -1,3 +1,4 @@
+import './css/Custom.css';
 import './css/Theme.css';
 import './css/Theme2.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +11,8 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import Login from "./Pages/Authen/Login";
 import AdminLayout from "./Layout/AdminLayout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Signup from "./Pages/Authen/Signup";
+import VerifyEmail from "./Pages/Authen/VerifyEmail";
 
 
 function App() {
@@ -18,6 +21,8 @@ function App() {
           <BrowserRouter>
               <Routes>
                   <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  <Route path="/verify-email" element={<VerifyEmail />} />
 
                   <Route element={<ProtectedRoute />}>
                       <Route path={"/admin"} element={<AdminLayout/>}>
