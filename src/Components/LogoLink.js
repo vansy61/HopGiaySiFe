@@ -1,7 +1,7 @@
-export default function LogoLink(){
+export default function LogoLink({size = 50, mb = 20}){
     return (
-        <a href="/" className="mb-0 mb-lg-20">
-            <img alt="Logo" src="/images/hopgiaysi-v3.png" className="h-40px h-lg-50px"/>
+        <a href="/" style={{marginBottom: mb}}>
+            <img alt="Logo" src="/images/hopgiaysi-v3.png" style={{height: size}}/>
         </a>
     )
 }

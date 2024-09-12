@@ -27,7 +27,7 @@ export default function Login() {
             try {
                 const res = await AuthApi.login(values);
                 localStorage.setItem('token', res.data.accessToken);
-                navigate('/');
+                navigate('/admin');
                 Helper.toastSuccess('Đăng nhập thành công!');
             } catch (error) {
                 Helper.parseError(error);

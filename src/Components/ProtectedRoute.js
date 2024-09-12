@@ -8,6 +8,7 @@ const ProtectedRoute = () => {
   const token = useSelector((state) => state.auth.token);
   const status = useSelector((state) => state.auth.status);
 
+
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
@@ -15,6 +16,7 @@ const ProtectedRoute = () => {
       dispatch(fetchUser());
     }
   }, [dispatch, token]);
+
   return (
       token ?
           <>
