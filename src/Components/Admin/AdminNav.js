@@ -42,7 +42,7 @@ export default function AdminNav() {
                             <div className="menu-item">
                                 <NavLink to={"/admin/dashboard"} className={"menu-link"}>
                                       <span className="menu-icon">
-                                         <i className="ki-duotone ki-home-3">
+                                         <i className="ki-duotone ki-home-3 fs-2">
                                          <span className="path1"></span>
                                          <span className="path2"></span>
                                         </i>
@@ -53,7 +53,7 @@ export default function AdminNav() {
                             <div className="menu-item">
                                 <NavLink to={"/admin/account"} className={"menu-link"}>
                                       <span className="menu-icon">
-                                         <i className="ki-duotone ki-user">
+                                         <i className="ki-duotone ki-user fs-2">
                                          <span className="path1"></span>
                                          <span className="path2"></span>
                                         </i>
@@ -64,7 +64,7 @@ export default function AdminNav() {
                             <div className="menu-item">
                                 <NavLink to={"/admin/product"} className={"menu-link"}>
                                       <span className="menu-icon">
-                                         <i className="ki-duotone ki-cube-2">
+                                         <i className="ki-duotone ki-cube-2 fs-2">
                                              <span className="path1"></span>
                                              <span className="path2"></span>
                                              <span className="path3"></span>

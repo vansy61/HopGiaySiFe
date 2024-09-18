@@ -6,3 +6,47 @@
 .custom-strength-bar >div >div:nth-child(even) {
     width: 10px!important;
 }
+
+
+/* for confirm dialog */
+.custom-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99000;
+}
+.custom-dialog .dialog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #1c375a29;
+}
+
+.custom-dialog .dialog-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 448px;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 0 0 1px #193b670d, 0 4px 24px -3px #1c375a29, 0 18px 64px -8px #1c324f61;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.custom-dialog .dialog-header {
+    padding: 24px;
+}
+.custom-dialog .dialog-body {
+    padding: 0 24px 24px;
+
+}
+.custom-dialog .dialog-footer {
+    background-color: #193b670d;
+    padding: 0.5rem 1rem;
+}

@@ -18,6 +18,8 @@ import Home from "./Pages/Home/Home";
 import Account from "./Pages/Admin/Account/Account";
 import AccountInfo from "./Pages/Admin/Account/AccountInfo";
 import AccountHistory from "./Pages/Admin/Account/AccountHistory";
+import ConfirmDialog from "./Components/ConfirmDialog";
+import AccountSecurity from "./Pages/Admin/Account/AccountSecurity";
 
 
 function App() {
@@ -39,12 +41,14 @@ function App() {
                               <Route index element={<Navigate to="/admin/account/info" />} />
                               <Route path={"/admin/account/info"} element={<AccountInfo />} />
                               <Route path={"/admin/account/history"} element={<AccountHistory />} />
+                              <Route path={"/admin/account/security"} element={<AccountSecurity />} />
                           </Route>
                       </Route>
                   </Route>
                   <Route path="*" element={<Error404 />} />
               </Routes>
               <ToastContainer />
+              <ConfirmDialog />
           </BrowserRouter>
       </Provider>
   );

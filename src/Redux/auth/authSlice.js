@@ -18,7 +18,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setToken: (state, action) => {
-      state.status = "idle";
+      localStorage.setItem('token', action.payload);
       state.token = action.payload;
     },
     logout: (state) => {
@@ -39,6 +39,8 @@ const authSlice = createSlice({
       })
       .addCase(fetchUser.rejected, (state, action) => {
         state.status = 'failed';
+        state.user = null;
+        state.token = null;
         localStorage.removeItem('token');
       });
   }

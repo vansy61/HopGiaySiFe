@@ -1,11 +1,12 @@
 import * as Yup from "yup";
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useFormik} from "formik";
 import AuthApi from "../../Apis/AuthApi";
 import Helper from "../../utils/helpers";
 import FormLogin from "./FormLogin";
 import AuthLeftContent from "../../Components/Auth/AuthLeftContent";
+import {fetchUser, setToken} from "../../Redux/auth/authSlice";
 
 const validationSchema = Yup.object({
     email: Yup.string().email().required("Vui lòng nhập email!"),
@@ -13,6 +14,7 @@ const validationSchema = Yup.object({
 });
 
 export default function Login() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const token = useSelector((state) => state.auth.token);
 
@@ -26,7 +28,8 @@ export default function Login() {
         onSubmit: async (values, { setSubmitting }) => {
             try {
                 const res = await AuthApi.login(values);
-                localStorage.setItem('token', res.data.accessToken);
+                await dispatch(setToken(res.data.accessToken));
+                await dispatch(fetchUser());
                 navigate('/admin');
                 Helper.toastSuccess('Đăng nhập thành công!');
             } catch (error) {
