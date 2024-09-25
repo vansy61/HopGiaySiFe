@@ -16,7 +16,7 @@ export default function VerifyEmail() {
         if(token == null) {
             return;
         }
-        const fetchUser = async () => {
+        const verifyAccount = async () => {
             try {
                 await AuthApi.verifyAccount({token});
                 navigate('/verify-success');
@@ -26,7 +26,7 @@ export default function VerifyEmail() {
             }
         };
 
-        fetchUser();
+        verifyAccount();
     }, []);
 
     if(token == null) {

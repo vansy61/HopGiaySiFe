@@ -12,6 +12,10 @@ class AuthApi {
   static async verifyAccount(data) {
     return axiosInstance.post('/api/auth/verify-email', data);
   }
+
+  static async verifyTwoFactor(data) {
+    return axiosInstance.post('/api/auth/verify-two-factor', data);
+  }
 }
 
 export default AuthApi;

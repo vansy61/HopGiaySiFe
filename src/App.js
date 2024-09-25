@@ -20,6 +20,7 @@ import AccountInfo from "./Pages/Admin/Account/AccountInfo";
 import AccountHistory from "./Pages/Admin/Account/AccountHistory";
 import ConfirmDialog from "./Components/ConfirmDialog";
 import AccountSecurity from "./Pages/Admin/Account/AccountSecurity";
+import TwoFactor from "./Pages/Authen/TwoFactor";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/verify-email" element={<VerifyEmail />} />
                   <Route path="/verify-success" element={<VerifySuccess />} />
+                  <Route path="/two-factor" element={<TwoFactor />} />
 
                   <Route element={<ProtectedRoute />}>
                       <Route path={"/admin"} element={<AdminLayout/>}>

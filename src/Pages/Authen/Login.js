@@ -28,6 +28,12 @@ export default function Login() {
         onSubmit: async (values, { setSubmitting }) => {
             try {
                 const res = await AuthApi.login(values);
+
+                if(res.data.needOtp) {
+                    navigate('/two-factor', { state: {email: res.data.email}});
+                    return;
+                }
+
                 await dispatch(setToken(res.data.accessToken));
                 await dispatch(fetchUser());
                 navigate('/admin');
